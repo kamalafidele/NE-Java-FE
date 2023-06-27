@@ -56,28 +56,30 @@ function ProductsPage() {
       <Sidebar />
       <Wrapper>
         <DashboardTopNav user={user} title={'Products'}/>
-        <div className="add-new">
-              <div>
-                <span
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: 20,
-                    textAlign: "left",
-                  }}
-                >
-                  New Product
-                </span>
-              </div>
-              <div className="add-product">
-                <span style={{ color: COLOR_PALETTE.GRAY }}>
-                  Add a new product
-                </span>
-                <i
-                  className="fa-solid fa-plus"
-                  onClick={() => setIsOpen(true)}
-                ></i>
-              </div>
-            </div>
+        { user.roles.includes('ROLE_ADMIN') && (
+                  <div className="add-new">
+                  <div>
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: 20,
+                        textAlign: "left",
+                      }}
+                    >
+                      New Product
+                    </span>
+                  </div>
+                  <div className="add-product">
+                    <span style={{ color: COLOR_PALETTE.GRAY }}>
+                      Add a new product
+                    </span>
+                    <i
+                      className="fa-solid fa-plus"
+                      onClick={() => setIsOpen(true)}
+                    ></i>
+                  </div>
+                </div>
+        )}
 
             <AddProduct closeModal={closeModal} isOpen={isOpen} />
             <ProductsContainer>

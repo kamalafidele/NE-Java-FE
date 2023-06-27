@@ -17,6 +17,8 @@ function AccountPage() {
         e.preventDefault();
         
         authStorage.removeToken();
+        authStorage.removeUser();
+        
         navigate('/');
     }
 
